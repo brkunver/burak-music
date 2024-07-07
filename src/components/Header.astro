@@ -1,0 +1,226 @@
+---
+import { Image } from "astro:assets"
+import logo from "../assets/treble-clef.png"
+---
+
+<header id="header" class="hidden lg:flex items-center self-center mt-10">
+  <Image id="logo" src={logo} alt="logo" width={120} class="translate-x-10 translate-y-12" />
+  <div id="notes-bar" class="flex flex-col">
+    <h1 id="heading" class="text-center mb-4 text-5xl">Burak Music</h1>
+    <div id="links" class="flex justify-around">
+      <a
+        id="home"
+        title="Burak Music"
+        aria-label="Burak Music"
+        aria-describedby="Burak Music Links"
+        href="/"
+        class="link">Home Page</a
+      >
+      <a
+        id="about"
+        title="Burak Music"
+        aria-label="Burak Music"
+        aria-describedby="Burak Music Links"
+        href="/about-us"
+        class="link translate-y-[26px]">About Us</a
+      >
+      <a
+        id="address"
+        title="Burak Music"
+        aria-label="Burak Music"
+        aria-describedby="Burak Music Links"
+        href="/address"
+        class="link translate-y-[54px]">Address</a
+      >
+      <a
+        id="contact"
+        title="Burak Music"
+        aria-label="Burak Music"
+        aria-describedby="Burak Music Links"
+        href="/contact"
+        class="link translate-y-[80px]">Contact</a
+      >
+      <a
+        id="whatsapp"
+        title="Burak Music"
+        aria-label="Burak Music"
+        aria-describedby="Burak Music Links"
+        href="https://wa.me/905555555555 "
+        target="_blank"
+        class="link translate-y-[104px]">WhatsApp</a
+      >
+    </div>
+    <div id="line" class="h-0.5 w-[600px] bg-gray-950"></div>
+    <div id="line" class="h-0.5 w-[600px] bg-gray-950 mt-6"></div>
+    <div id="line" class="h-0.5 w-[600px] bg-gray-950 mt-6"></div>
+    <div id="line" class="h-0.5 w-[600px] bg-gray-950 mt-6"></div>
+    <div id="line" class="h-0.5 w-[600px] bg-gray-950 mt-6"></div>
+
+    <p id="description" class="pulse-animation text-center font-medium text-sm translate-y-6">
+      🎵 Press the treble clef symbol and hover your mouse over the text above 🎵
+    </p>
+  </div>
+</header>
+
+<style>
+  #heading {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+  }
+
+  #heading:hover {
+    transform: scale(1.1);
+  }
+
+  .link {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: normal;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+
+  #logo {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+
+  #logo:hover {
+    transform: translate(2.5rem, 3rem) scale(1.2);
+    cursor: url("/cursor-hand.png"), pointer;
+  }
+
+  #logo:active {
+    transform: translate(2.5rem, 3rem) scale(1.1);
+  }
+
+  .link:hover {
+    text-shadow: 0 0 20px;
+  }
+
+  #home:hover {
+    transform: scale(1.4);
+    text-shadow: 0 0 5px #e74c3c;
+  }
+
+  #about:hover {
+    transform: translateY(26px) scale(1.4);
+    text-shadow: 0 0 5px #e67e22;
+  }
+
+  #address:hover {
+    transform: translateY(54px) scale(1.4);
+    text-shadow: 0 0 5px #8e44ad;
+  }
+
+  #contact:hover {
+    transform: translateY(80px) scale(1.4);
+    text-shadow: 0 0 5px #2980b9;
+  }
+
+  #whatsapp:hover {
+    transform: translateY(104px) scale(1.4);
+    text-shadow: 0 0 5px #27ae60;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translateY(1.5rem) scale(1);
+    }
+    30% {
+      transform: translateY(1.5rem) scale(1.2);
+    }
+    70% {
+      transform: translateY(1.5rem) scale(1.2);
+    }
+    100% {
+      transform: translateY(1.5rem) scale(1);
+    }
+  }
+  .pulse-animation {
+    animation: pulse 6s infinite;
+  }
+</style>
+
+<script>
+  const $ = (id: string) => document.getElementById(id)
+
+  let isHeadingSoundPlayable = true
+  let isSoundsActive = false
+
+  const laNote = new Audio("/sounds/la.wav")
+  const solNote = new Audio("/sounds/sol.wav")
+  const faNote = new Audio("/sounds/fa.wav")
+  const miNote = new Audio("/sounds/mi.wav")
+  const reNote = new Audio("/sounds/re.wav")
+  const headingAudio = new Audio("/sounds/header-sound.mp3")
+  const logoAudio = new Audio("/sounds/logo.wav")
+
+  $("home").addEventListener("mouseover", () => {
+    if (isSoundsActive) {
+      laNote.pause()
+      laNote.currentTime = 0
+      laNote.play()
+    }
+  })
+
+  $("about").addEventListener("mouseover", () => {
+    if (isSoundsActive) {
+      solNote.pause()
+      solNote.currentTime = 0
+      solNote.play()
+    }
+  })
+
+  $("address").addEventListener("mouseover", () => {
+    if (isSoundsActive) {
+      faNote.pause()
+      faNote.currentTime = 0
+      faNote.play()
+    }
+  })
+
+  $("contact").addEventListener("mouseover", () => {
+    if (isSoundsActive) {
+      miNote.pause()
+      miNote.currentTime = 0
+      miNote.play()
+    }
+  })
+
+  $("whatsapp").addEventListener("mouseover", () => {
+    if (isSoundsActive) {
+      reNote.pause()
+      reNote.currentTime = 0
+      reNote.play()
+    }
+  })
+
+  $("heading").addEventListener("click", () => {
+    if (isHeadingSoundPlayable && isSoundsActive) {
+      headingAudio.play()
+      isHeadingSoundPlayable = false
+      setTimeout(() => (isHeadingSoundPlayable = true), 8500)
+    } else {
+      return
+    }
+  })
+
+  $("logo").addEventListener("click", () => {
+    isSoundsActive = true
+    $("description").classList.remove("pulse-animation")
+    $("description").classList.add("text-md")
+    $("description").innerText = "🎵 Hover your mouse over the text to listen to the sounds 🎵"
+    logoAudio.pause()
+    logoAudio.currentTime = 0
+    logoAudio.play()
+  })
+</script>

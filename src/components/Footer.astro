@@ -1,0 +1,56 @@
+---
+
+---
+
+<footer class="mx-auto flex flex-col mt-4 lg:mt-12 justify-center">
+  <p class="font-semibold mb-8 mx-auto" id="copyright">Burak Music 2024 - All Rights Reserved</p>
+  <section
+    class="grid grid-cols-2 lg:flex gap-x-12 gap-y-6 lg:gap-x-12 lg:flex-row mx-auto justify-center pb-6 underline underline-offset-2"
+  >
+    <a
+      id="about"
+      title="Burak Music"
+      aria-label="Burak Music"
+      aria-describedby="Burak Music link"
+      href="/about-us"
+      class="">About</a
+    >
+    <a
+      id=" address"
+      title="Burak Music"
+      aria-label="Burak Music"
+      aria-describedby="Burak Music  address Link"
+      href="/address"
+      class="">Address</a
+    >
+    <a
+      id="contact"
+      title="Burak Music"
+      aria-label="Burak Music"
+      aria-describedby="Burak Music link"
+      href="/contact"
+      class="">Contact</a
+    >
+    <a
+      id="whatsapp"
+      title="Burak Music"
+      aria-label="Burak Music"
+      aria-describedby="Burak Music link"
+      href="https://wa.me/905555555555 "
+      target="_blank"
+      class="">WhatsApp</a
+    >
+  </section>
+</footer>
+
+<style>
+  a {
+    @apply text-lg font-semibold;
+  }
+</style>
+
+<script>
+  let copyrightText = document.getElementById("copyright")
+  let year = new Date().getFullYear()
+  copyrightText.innerText = "Burak Music " + year.toString() + " - All Rights Reserved"
+</script>

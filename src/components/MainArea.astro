@@ -1,0 +1,153 @@
+<main class="flex flex-col justify-center text-center mt-8 lg:mt-32 overflow-x-hidden">
+  <div id="hero">
+    <div id="hero-content" class="flex flex-col justify-around py-6 px-4 max-w-[400px]">
+      <h2 class="font-bold text-3xl mb-6">The Address for Quality Music</h2>
+      <p>Burak Music offers quality music with 7 years of experience to make your special day unforgettable.</p>
+    </div>
+    <img id="hero-image" alt="Burak Music" src="/yatay1.jpg" />
+  </div>
+  <div id="feature-grid" class="grid grid-cols-1 lg:grid-cols-2 mb-2 lg:mx-auto lg:gap-x-16 lg:gap-y-20 lg:mt-8">
+    <div id="left-1" class="feature-card lg:order-1 grid-element">
+      <h2>Welcome</h2>
+      <p>
+        We're here to add warmth and energy to your weddings and circumcision ceremonies! Our professional music group
+        is ready to create unforgettable moments nationwide.
+      </p>
+    </div>
+    <div id="right-1" class="feature-card !grid place-content-center !p-0 lg:order-2">
+      <img src="/yatay3.jpg" alt="Burak Music" />
+    </div>
+    <div id="right-2" class="feature-card lg:order-4 grid-element">
+      <h2>Unlimited Music Options</h2>
+      <p>
+        Our repertoire ranges from Turkish music classics to popular world songs. With a repertoire that appeals to
+        every taste, you can shape the atmosphere of your event just the way you want.
+      </p>
+    </div>
+    <div id="left-2" class="feature-card !grid place-content-center !p-0 lg:order-3 grid-element">
+      <img src="/yatay4.jpg" alt="Burak Music" />
+    </div>
+
+    <div id="left-3" class="feature-card grid-element lg:order-5">
+      <h2>Experienced Orchestra Team</h2>
+      <p>
+        Our team of professional musicians brings together years of experience and stage performance to entertain you
+        and your guests, making you dance and creating an unforgettable night.
+      </p>
+    </div>
+    <div id="right-3" class="feature-card !grid place-content-center !p-0 grid-element lg:order-6">
+      <img src="/yatay2.jpg" alt="Burak Music" />
+    </div>
+
+    <div id="right-4" class="feature-card grid-element lg:order-8">
+      <h2>Special Arrangements and Requested Pieces</h2>
+      <p>
+        We also offer special arrangements and requested pieces to make your event unique. With specially selected
+        melodies for you, you'll cherish this moment forever and share it with your guests.
+      </p>
+    </div>
+    <div id="left-4" class="feature-card !grid place-content-center !p-0 grid-element lg:order-7">
+      <img src="/yatay5.jpg" alt="Burak Music" />
+    </div>
+  </div>
+
+  <div id="hero" class="my-6">
+    <img id="hero-image" alt="Burak Music" src="/yatay1.jpg" />
+    <div id="hero-content" class="flex flex-col justify-around py-6 px-4 max-w-[400px]">
+      <h2 class="font-bold text-3xl mb-6">Get in Touch</h2>
+
+      <p>
+        Contact us immediately at <a href="https://wa.me/905555555555" target="_blank">0555 555 55 55</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<script>
+  const observerCreator = (direction: string) => {
+    return new IntersectionObserver(
+      (entries) => {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove(`${direction}-off-screen`)
+          } else {
+            entry.target.classList.add(`${direction}-off-screen`)
+          }
+        })
+      },
+      { threshold: 0 }
+    )
+  }
+
+  const rightObserver = observerCreator("right")
+  const leftObserver = observerCreator("left")
+
+  const leftElement2 = document.getElementById("left-2")
+  const leftElement3 = document.getElementById("left-3")
+  const leftElement4 = document.getElementById("left-4")
+
+  const rightElement2 = document.getElementById("right-2")
+  const rightElement3 = document.getElementById("right-3")
+  const rightElement4 = document.getElementById("right-4")
+
+  leftObserver.observe(leftElement2)
+  leftObserver.observe(leftElement3)
+  leftObserver.observe(leftElement4)
+
+  rightObserver.observe(rightElement2)
+  rightObserver.observe(rightElement3)
+  rightObserver.observe(rightElement4)
+</script>
+
+<style>
+  #hero-image {
+    @apply rounded-lg shadow-md hover:scale-105 hover:shadow-2xl transition-all duration-200 w-full lg:w-[400px];
+    @apply my-4;
+  }
+
+  .feature-card {
+    @apply bg-gray-100 mx-2 text-center h-80 lg:mt-12;
+    @apply border border-gray-200 shadow-sm rounded-md py-4 px-6;
+    @apply flex flex-col justify-center mt-4 lg:w-[500px] lg:my-auto;
+  }
+  .feature-card h2 {
+    @apply font-bold text-2xl mb-4;
+  }
+  .feature-card img {
+    @apply my-auto lg:w-[400px];
+    @apply rounded-lg shadow-md hover:scale-105 hover:shadow-2xl transition-all duration-200;
+  }
+  .feature-card p {
+    @apply font-semibold text-base;
+  }
+
+  .grid-element {
+    will-change: transform;
+    transition: transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transform: translateZ(0);
+  }
+  .right-off-screen {
+    transform: translateX(200px);
+  }
+
+  .left-off-screen {
+    transform: translateX(-200px);
+  }
+
+  #hero {
+    animation: slideIn 700ms ease-out;
+    @apply flex flex-col lg:flex-row justify-center items-center;
+    @apply border border-gray-200 bg-gray-100 shadow-sm w-fit mx-2 self-center rounded-md py-2 px-4;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateY(100px); /* Keep the element below at the start */
+    }
+    100% {
+      transform: translateY(0); /* Ensure the element ends up in its normal position at the end */
+    }
+  }
+</style>

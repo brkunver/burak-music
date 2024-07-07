@@ -1,0 +1,54 @@
+---
+import Header from "../components/Header.astro"
+import MobileHeader from "../components/MobileHeader.astro"
+import Footer from "../components/Footer.astro"
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Burak Music" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-300 min-w-screen flex flex-col justify-center">
+    <a
+      href="https://wa.me/905555555555 "
+      target="_blank"
+      class="fixed right-10 bottom-10 hover:scale-105 hover:shadow-sm duration-100 z-40"
+      aria-label="whatsapp"
+      title="whatsapp"
+      aria-describedby="Burak Music whatsapp"
+    >
+      <img src="/whatsapp.png" alt="whatsapp" class="w-10 lg:w-20 z-30" />
+    </a>
+
+    <MobileHeader />
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    cursor: url("/cursor.png"), auto;
+  }
+
+  a {
+    cursor: url("/cursor-hand.png"), auto;
+  }
+</style>
